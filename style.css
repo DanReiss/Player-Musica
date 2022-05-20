@@ -1,0 +1,90 @@
+body , html {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #17131E;
+    color: rgb(240, 240, 240)
+}
+main{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 350px;
+    background-color: #1e1b23;
+}
+img{
+    margin-top: 25px;
+    width: 300px;
+    height: 300px;
+}
+.title-name{
+    text-align: left;
+    font-size: 1em;
+    width: 300px;
+}
+.artists{
+    text-align: left;
+    margin-bottom: 10px;
+}
+.title-name p{
+    margin: 0;
+    margin-bottom: 10px;
+}
+.progress{
+    margin-top: 10px;
+    width: 300px;
+}
+.progressbar{
+    width: 300px;
+    height: 8px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+progress{
+    height: 8px;
+    width: 0%;
+    background-color: rgb(19, 18, 18);
+}
+.timepoint{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-left: -10px;
+    background-color: #eee;
+    cursor: pointer;                                                                            
+}
+.time{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+.player{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.botaoplay , .botaopause{
+    z-index: 0;
+    font-size: 50px;
+    cursor: pointer;
+}
+.back-next{
+    font-size: 40px;
+    cursor: pointer;
+}
+.botaopause{
+    display: none;
+}
