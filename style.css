@@ -11,19 +11,53 @@ body , html {
     color: rgb(240, 240, 240)
 }
 main{
+    padding: 1rem;
     border-radius: 5px;
+    border: 1px solid #17121a;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     width: 350px;
-    background-color: #1e1b23;
+    background-color: #1c1a20;
+    transition: 1s all;
 }
 img{
     margin-top: 25px;
     width: 300px;
     height: 300px;
 }
+
+.fa-solid{
+    transition: 500ms  all;
+}
+
+.fa-solid:hover{
+    scale: 1.2;
+}
+
+input[type="range"]{
+    appearance: none;
+    margin-right: 15px;
+    width: 200px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    background-image: linear-gradient(#ceb8d6, #443348);
+    background-repeat: no-repeat;
+    transition: all 250ms;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #eee;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+}
+
 .title-name{
     text-align: left;
     font-size: 1em;
@@ -41,28 +75,12 @@ img{
     margin-top: 10px;
     width: 300px;
 }
-.progressbar{
+
+.progress input[type="range"]{
     width: 300px;
-    height: 8px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    background-size: 0% 100%;
 }
-progress{
-    height: 8px;
-    width: 0%;
-    background-color: rgb(19, 18, 18);
-}
-.timepoint{
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    margin-left: -10px;
-    background-color: #eee;
-    cursor: pointer;                                                                            
-}
+
 .time{
     display: flex;
     width: 300px;
@@ -87,4 +105,43 @@ progress{
 }
 .botaopause{
     display: none;
+}
+
+.volume{
+    margin-top: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.volume button{
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: #1c1a20;
+}
+
+.volume button i{
+    font-size: 16px;
+}
+
+.volume input[type="range"]{
+    background-size: 30% 100%;
+}
+
+@media (max-width: 375px) {
+    body{
+        font-size: 0.8rem;
+    }
+    main{
+        width: 100vw;
+        font-size: 0.8rem;
+        padding: 2rem;
+    }
+    img{
+        width: 275px;
+        height: 275px;
+    }   
 }

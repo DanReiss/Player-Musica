@@ -7,22 +7,20 @@
     <script src="https://kit.fontawesome.com/2605a184b6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <title>Player Aúdio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <title>Music Player Damn!</title>
+    <link rel="shurtcut icon" type="image/svg" href="/assets/images/music-stream-svgrepo-com.svg">
 </head>
 <body>
     <main>
-        <img src="./assets/images/capahonestspotify.png" class="mainimage">
+        <img alt=""  class="mainimage">
         <div class="title-name">
             <h2 class="artists">Honest (feat.Don Toliver)</h2>
             <p class="artists">Justin Bieber, Don Toliver</p>
         </div>
         <div class="progress">
-            <div class="progressbar">
-                <progress value="0" max="1"></progress>
-                <div class="timepoint"></div>
-            </div>
+            <input class="progress-input" type="range" min="0" value="0">
             <div class="time">
                 <p class="start">0:00</p>
                 <p class="end">4:20</p>
@@ -34,8 +32,15 @@
             <i class="fa-solid fa-pause botaopause"></i>
             <i class="fa-solid fa-forward back-next next"></i>
         </div>
-        <audio src="./mp3/X2Download.com - Justin Bieber - Honest (feat. Don Toliver) (Official Video) (128 kbps).mp3"></audio>
+        <div class="volume">
+            <button class="mute-button">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <input class="volume-input" type="range" min="1" max="100" value="30">
+        </div>
+        <audio></audio>
     </main>
+
     <script src="./script.js"></script>
 </body>
 </html>
