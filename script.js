@@ -5,10 +5,10 @@ let musics =[
     {title:'Mean To Me - Remastered/1998', artists:'Dean Martin', src:'./mp3/Mean to Me.mp3', img:'./assets/images/capadeanmartin.png'},
     {title:'Cabin Fever', artists:'Jaden', src:'./mp3/Cabin Fever.mp3', img:'./assets/images/capacabinfever.png'}
 ]
-let musica = document.querySelector('audio');
+let musicPlayer = document.querySelector('audio');
 let indexMusic = 0;
-let duracaoMusica = document.querySelector('.end');
-let imagem = document.querySelector('img');
+let musicDuration = document.querySelector('.end');
+let musicImage = document.querySelector('img');
 let musicName = document.querySelector('.title-name h2');
 let artistsName = document.querySelector('.title-name p');
 let muteButton = document.querySelector('.mute-button')
@@ -17,9 +17,9 @@ let progressInput = document.querySelector('.progress-input');
 
 renderMusic(indexMusic);
 
-document.querySelector('.botaoplay').addEventListener('click', playMusic);
+document.querySelector('.play-button').addEventListener('click', playMusic);
 
-document.querySelector('.botaopause').addEventListener('click', stopMusic);
+document.querySelector('.pause-button').addEventListener('click', stopMusic);
 
 muteButton.addEventListener('click', muteMusic);
 
@@ -32,27 +32,27 @@ document.querySelector('.next').addEventListener('click', next);
 
 
 function renderMusic(index){
-    musica.setAttribute('src', musics[index].src);
-    musica.addEventListener('loadeddata', () =>{
+    musicPlayer.setAttribute('src', musics[index].src);
+    musicPlayer.addEventListener('loadeddata', () =>{
         musicName.textContent = musics[index].title;
         artistsName.textContent = musics[index].artists;
-        imagem.src = musics[index].img;
-        duracaoMusica.textContent = secToMin(Math.floor(musica.duration));
-        progressInput.max = Math.floor(musica.duration);
+        musicImage.src = musics[index].img;
+        musicDuration.textContent = secToMin(Math.floor(musicPlayer.duration));
+        progressInput.max = Math.floor(musicPlayer.duration);
         changeVolume();
     });
 }
 
 function playMusic(){
-    musica.play();
-    document.querySelector('.botaopause').style.display = 'block';
-    document.querySelector('.botaoplay').style.display = 'none';
+    musicPlayer.play();
+    document.querySelector('.pause-button').style.display = 'block';
+    document.querySelector('.play-button').style.display = 'none';
 }
 
 function stopMusic(){
-    musica.pause();
-    document.querySelector('.botaopause').style.display = 'none';
-    document.querySelector('.botaoplay').style.display = 'block';
+    musicPlayer.pause();
+    document.querySelector('.pause-button').style.display = 'none';
+    document.querySelector('.play-button').style.display = 'block';
 }
 
 function back(){
@@ -74,35 +74,35 @@ function next(){
 }
 
 function muteMusic(){
-    let iconClass = musica.muted ? "fa-solid fa-volume-high" : "fa-solid fa-volume-xmark"
-    musica.muted = !musica.muted
+    let iconClass = musicPlayer.muted ? "fa-solid fa-volume-high" : "fa-solid fa-volume-xmark"
+    musicPlayer.muted = !musicPlayer.muted
     
     muteButton.children[0].classList = iconClass
 }
 
 function changeVolume(){
-    musica.volume = volumeInput.value / 100
+    musicPlayer.volume = volumeInput.value / 100
     volumeInput.style.backgroundSize = `${volumeInput.value}% 100%`
 }
 
 function changeCurrentTime(){
     clearInterval(update)
     console.log(progressInput.value)
-    musica.currentTime = progressInput.value;
+    musicPlayer.currentTime = progressInput.value;
     updateInfo()
     update = setInterval(updateInfo, 1000)
 }
 
 function updateInfo(){
-    progressInput.value = Math.floor(musica.currentTime)
-    progressInput.style.backgroundSize = Math.floor((musica.currentTime / musica.duration) * 100) + '% 100%';
+    progressInput.value = Math.floor(musicPlayer.currentTime)
+    progressInput.style.backgroundSize = Math.floor((musicPlayer.currentTime / musicPlayer.duration) * 100) + '% 100%';
     let current_Time = document.querySelector('.start');
-    current_Time.textContent = secToMin(Math.floor(musica.currentTime));
+    current_Time.textContent = secToMin(Math.floor(musicPlayer.currentTime));
     checkIfFinished()
 }
 
 function checkIfFinished(){
-    if(musica.currentTime === musica.duration){
+    if(musicPlayer.currentTime === musicPlayer.duration){
         next();
     }
 }
@@ -117,7 +117,7 @@ function secToMin(secs){
     return minSpace+ ':' + secSpace;
 }
 function duration(){
-    duracaoMusica.textContent = secToMin(Math.floor(currentSong.duration));
+    musicDuration.textContent = secToMin(Math.floor(currentSong.duration));
 }
 
 let update = setInterval(updateInfo, 1000)
