@@ -87,7 +87,6 @@ function changeVolume(){
 
 function changeCurrentTime(){
     clearInterval(update)
-    console.log(progressInput.value)
     musicPlayer.currentTime = progressInput.value;
     updateInfo()
     update = setInterval(updateInfo, 1000)
