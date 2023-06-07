@@ -1,3 +1,7 @@
+window.addEventListener("load", ()=>{
+    renderMusic(indexMusic)
+} )
+
 let musics =[
     {title:'Honest(feat.Don Toliver)', artists:'Justin Bieber, Don Toliver', src:'./mp3/Honest.mp3', img:'./assets/images/capahonestspotify.png'},
     {title:'Die Hard', artists:'Kendrick Lamar, Blxst, Amanda Reifer', src:'./mp3/Die Hard.mp3', img:'./assets/images/capakendricklamar.png'},
@@ -5,6 +9,7 @@ let musics =[
     {title:'Mean To Me - Remastered/1998', artists:'Dean Martin', src:'./mp3/Mean to Me.mp3', img:'./assets/images/capadeanmartin.png'},
     {title:'Cabin Fever', artists:'Jaden', src:'./mp3/Cabin Fever.mp3', img:'./assets/images/capacabinfever.png'}
 ]
+
 let musicPlayer = document.querySelector('audio');
 let indexMusic = 0;
 let musicDuration = document.querySelector('.end');
@@ -15,23 +20,16 @@ let muteButton = document.querySelector('.mute-button')
 let volumeInput = document.querySelector('.volume-input')
 let progressInput = document.querySelector('.progress-input');
 
-renderMusic(indexMusic);
-
 document.querySelector('.play-button').addEventListener('click', playMusic);
-
 document.querySelector('.pause-button').addEventListener('click', stopMusic);
-
 muteButton.addEventListener('click', muteMusic);
-
 volumeInput.addEventListener('change', changeVolume)
-
 progressInput.addEventListener('change', changeCurrentTime)
- 
 document.querySelector('.back').addEventListener('click', back);
 document.querySelector('.next').addEventListener('click', next);
 
-
 function renderMusic(index){
+    console.log(index)
     musicPlayer.setAttribute('src', musics[index].src);
     musicPlayer.addEventListener('loadeddata', () =>{
         musicName.textContent = musics[index].title;
@@ -57,7 +55,7 @@ function stopMusic(){
 
 function back(){
     indexMusic--;
-    if(indexMusic < 0 ){
+    if(indexMusic < musics.length - 1){
         indexMusic = 4;
     }
     renderMusic(indexMusic);
@@ -66,7 +64,7 @@ function back(){
 
 function next(){
     indexMusic++;
-    if(indexMusic > 4){
+    if(indexMusic > musics.length - 1){
         indexMusic = 0;
     }
     renderMusic(indexMusic);
