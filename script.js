@@ -29,12 +29,12 @@ document.querySelector('.back').addEventListener('click', back);
 document.querySelector('.next').addEventListener('click', next);
 
 function renderMusic(index){
-    console.log(index)
     musicPlayer.setAttribute('src', musics[index].src);
     musicPlayer.addEventListener('loadeddata', () =>{
         musicName.textContent = musics[index].title;
         artistsName.textContent = musics[index].artists;
-        musicImage.src = musics[index].img;
+        musicImage.datasrc = musics[index].img;
+        musicImage.src = musicImage.datasrc;
         musicDuration.textContent = secToMin(Math.floor(musicPlayer.duration));
         progressInput.max = Math.floor(musicPlayer.duration);
         changeVolume();
