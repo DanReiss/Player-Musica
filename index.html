@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/2605a184b6.js" crossorigin="anonymous"></script>
+    <meta name="description" content="A simple music player that plays some musics">
+    <script defer src="https://kit.fontawesome.com/2605a184b6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <title>Music Player Damn!</title>
+    <title>Music Player!</title>
     <link rel="shurtcut icon" type="image/svg" href="/assets/images/music-stream-svgrepo-com.svg">
 </head>
 <body>
     <main>
-        <img alt="music cover" class="mainimage" loading="lazy">
+        <img alt="music cover" class="mainimage">
         <div class="title-name">
             <h2 class="artists"></h2>
             <p class="artists"></p>
         </div>
         <div class="progress">
-            <input class="progress-input" type="range" min="0" value="0">
+            <input aria-label="change music time" class="progress-input" type="range" min="0" value="0">
             <div class="time">
                 <p class="start">00:00</p>
                 <p class="end"></p>
@@ -33,10 +34,10 @@
             <i class="fa-solid fa-forward back-next next"></i>
         </div>
         <div class="volume">
-            <button class="mute-button">
+            <button class="mute-button" aria-label="mute button">
                 <i class="fa-solid fa-volume-high"></i>
             </button>
-            <input class="volume-input" type="range" min="1" max="100" value="30">
+            <input aria-label="change music volume" class="volume-input" type="range" min="1" max="100" value="30">
         </div>
         <audio></audio>
     </main>

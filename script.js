@@ -1,7 +1,3 @@
-window.addEventListener("load", ()=>{
-    renderMusic(indexMusic)
-} )
-
 let musics =[
     {title:'Honest(feat.Don Toliver)', artists:'Justin Bieber, Don Toliver', src:'./mp3/Honest.mp3', img:'./assets/images/capahonestspotify.png'},
     {title:'Die Hard', artists:'Kendrick Lamar, Blxst, Amanda Reifer', src:'./mp3/Die Hard.mp3', img:'./assets/images/capakendricklamar.png'},
@@ -33,13 +29,14 @@ function renderMusic(index){
     musicPlayer.addEventListener('loadeddata', () =>{
         musicName.textContent = musics[index].title;
         artistsName.textContent = musics[index].artists;
-        musicImage.datasrc = musics[index].img;
-        musicImage.src = musicImage.datasrc;
+        musicImage.src = musics[index].img;
         musicDuration.textContent = secToMin(Math.floor(musicPlayer.duration));
         progressInput.max = Math.floor(musicPlayer.duration);
         changeVolume();
     });
 }
+
+renderMusic(indexMusic)
 
 function playMusic(){
     musicPlayer.play();
