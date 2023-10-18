@@ -26,6 +26,7 @@ document.querySelector('.next').addEventListener('click', next);
 
 function renderMusic(index){
     musicPlayer.setAttribute('src', musics[index].src);
+    musicImage.classList.add("hidden");
     musicPlayer.addEventListener('loadeddata', () =>{
         musicName.textContent = musics[index].title;
         artistsName.textContent = musics[index].artists;
@@ -36,7 +37,11 @@ function renderMusic(index){
     });
 }
 
-renderMusic(indexMusic)
+musicImage.addEventListener("load", ()=>{
+    musicImage.classList.remove("hidden");
+})
+
+renderMusic(indexMusic);
 
 function playMusic(){
     musicPlayer.play();
